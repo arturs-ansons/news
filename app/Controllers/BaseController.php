@@ -1,8 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 namespace News\Controllers;
 
 use Twig\Environment;
-use News\Models\ApiServiss;
+use News\ApiServiss;
 
 
 class BaseController

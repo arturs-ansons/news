@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace News\Controllers;
 
 class NewsController extends BaseController
@@ -10,7 +12,7 @@ class NewsController extends BaseController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\LoaderError
      */
-    public function index(): void
+    public function index(): void //Response
     {
         $selectedCountry = $_POST['country'] ?? null;
 

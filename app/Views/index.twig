@@ -24,9 +24,13 @@
     </select>
 
     <button type="submit">Get News</button>
+
 </form>
 
     <div class="container mt-3">
+        <ul class="navbar-nav ml-auto">
+            <p>{{ globalTime }}</p>
+        </ul>
         <form method="POST" action="/search" name="search" class="form-inline">
             <input type="text" class="form-control mr-2" name="query" placeholder="Search...">
             <input type="date" class="form-control mr-2" name="fromDate" placeholder="From Date">
@@ -53,6 +57,5 @@
     chooseLang();
 
 </script>
-
 </body>
 </html>
