@@ -1,6 +1,5 @@
 <?php
 namespace News\Models;
-use Carbon\Carbon;
 use GuzzleHttp\Client;
 
 
@@ -10,7 +9,9 @@ class ApiServiss
 
     public function __construct()
     {
-        $this->client = new Client();
+        $this->client = new Client([
+            'verify' => 'C:/CA certificates/cacert.pem',
+        ]);
     }
 
     /**
@@ -18,9 +19,9 @@ class ApiServiss
      */
     public function fetchNewsByCountry($country): array
     {
-
+        $apiKey = $_ENV['API_KEY'];
         if ($country) {
-            $url = "https://newsapi.org/v2/top-headlines?country=$country&category=business&apiKey=45c28deca60947fd9ec4d8db2b2c4a81";
+            $url = "https://newsapi.org/v2/top-headlines?country=$country&category=business&apiKey=$apiKey";
             $response = $this->client->get($url);
 
             if ($response->getStatusCode() == 200) {
