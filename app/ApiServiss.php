@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace News;
 use GuzzleHttp\Client;
 
@@ -14,9 +17,6 @@ class ApiServiss
         ]);
     }
 
-    /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
     public function fetchNewsByCountry($country): array
     {
         $apiKey = $_ENV['API_KEY'];
@@ -25,7 +25,7 @@ class ApiServiss
             $response = $this->client->get($url);
 
             if ($response->getStatusCode() == 200) {
-                $data = json_decode($response->getBody(), true);
+                $data = json_decode((string)$response->getBody(), true);
 
                 if (!empty($data['articles'])) {
                     return $data['articles'];
@@ -35,9 +35,6 @@ class ApiServiss
         return [];
     }
 
-    /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
     public function fetchNewsByDateAndPost($article, $fromDate, $toDate): array
     {
 
@@ -50,7 +47,7 @@ class ApiServiss
         $response = $this->client->get($url);
 
         if ($response->getStatusCode() == 200) {
-            $data = json_decode($response->getBody(), true);
+            $data = json_decode((string)$response->getBody(), true);
 
             if (!empty($data['articles'])) {
                 return $data['articles'];

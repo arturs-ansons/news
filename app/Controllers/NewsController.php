@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace News\Controllers;
 
 class NewsController extends BaseController
