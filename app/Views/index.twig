@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>World News</title>
+
+</head>
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>`
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css">
+
+<body>
+</head>
+
+    <form method="POST" action="/news">
+    <select class="selectpicker" data-width="fit" name="country" id="country">
+        <option value="us" data-content='<span class="flag-icon flag-icon-us"></span> USA'>USA</option>
+        <option value="lv" data-content='<span class="flag-icon flag-icon-lv"></span> LV'>Latvia</option>
+        <option value="be" data-content='<span class="flag-icon flag-icon-be"></span> BE'>Belgium</option>
+    </select>
+
+    <button type="submit">Get News</button>
+</form>
+
+    <div class="container mt-3">
+        <form method="POST" action="/search" name="search" class="form-inline">
+            <input type="text" class="form-control mr-2" name="query" placeholder="Search...">
+            <input type="date" class="form-control mr-2" name="fromDate" placeholder="From Date">
+            <input type="date" class="form-control mr-2" name="toDate" placeholder="To Date">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+<ul>
+    {% for article in news %}
+        <li class="news-container">
+            <h2 class="news-title">{{ article.title }}</h2>
+            <a href="{{ article.url }}" target="_blank">{{ article.url }}</a>
+            <p class="news-content">{{ article.content }}</p>
+            <img class="news-image" src="{{ article.urlToImage }}" alt="Article Image">
+        </li>
+    {% endfor %}
+</ul>
+
+
+<script>var chooseLang = function() {
+        $('.selectpicker').selectpicker();
+    };
+
+    chooseLang();
+
+</script>
+
+</body>
+</html>

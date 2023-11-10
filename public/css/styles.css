@@ -1,0 +1,79 @@
+/* Style for the body */
+/* Style for the body */
+body {
+    font-family: Arial, sans-serif; /* Choose your preferred font */
+    background-color: #f0f0f0; /* Set a background color for the body */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Container for news articles */
+.container {
+    max-width: 1200px; /* Adjust the maximum width to your preference */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px 0; /* Add padding to the top and bottom of the container for spacing */
+    box-sizing: border-box; /* Include padding and border in width calculations */
+}
+
+/* Style for the news container */
+.news-container {
+    width: calc(25% - 20px);  /* Adjust for 4 articles per row and spacing */
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    background-color: #f7f7f7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: inline-block; /* Display containers inline to have multiple per row */
+    box-sizing: border-box; /* Include padding and border in width calculations */
+    text-align: center; /* Center-align text content within the container */
+    vertical-align: top; /* Align containers to the top of the row */
+ /* Float containers to the right */
+}
+
+
+
+/* Style for news article title */
+.news-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style for news article content */
+.news-content {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Style for news article image */
+.news-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+/* Remove list styling for news items */
+ul {
+    list-style: none;
+    padding: 0;
+
+}
+button {
+    background-color: bisque; /* Change the background color */
+    color: #fff; /* Change the text color */
+    padding: 10px 20px; /* Add some padding for better spacing */
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth color transition on hover */
+}
+.news-container a {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+button:hover {
+    background-color: #0056b3; /* Change the background color on hover */
+}
