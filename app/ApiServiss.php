@@ -1,5 +1,5 @@
 <?php
-namespace News\Models;
+namespace News;
 use GuzzleHttp\Client;
 
 
@@ -27,7 +27,7 @@ class ApiServiss
             if ($response->getStatusCode() == 200) {
                 $data = json_decode($response->getBody(), true);
 
-                if (isset($data['articles']) && !empty($data['articles'])) {
+                if (!empty($data['articles'])) {
                     return $data['articles'];
                 }
             }
@@ -52,16 +52,11 @@ class ApiServiss
         if ($response->getStatusCode() == 200) {
             $data = json_decode($response->getBody(), true);
 
-            if (isset($data['articles']) && !empty($data['articles'])) {
+            if (!empty($data['articles'])) {
                 return $data['articles'];
             }
         }
 
         return [];
     }
-
-
-
-
-
 }
